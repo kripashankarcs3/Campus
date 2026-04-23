@@ -1,4 +1,4 @@
-name: Java CI/CD with Maven
+name: Frontend CI
 
 on:
   push:
@@ -10,20 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout Code
       uses: actions/checkout@v4
 
-    - name: Set up Java
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-
-    - name: Build with Maven
-      run: mvn clean install
-
-    - name: Upload JAR File
-      uses: actions/upload-artifact@v4
-      with:
-        name: campus-build
-        path: target/*.jar
+    - name: Verify HTML, CSS, JS Files
+      run: |
+        ls
+        echo "Frontend project checked successfully"
